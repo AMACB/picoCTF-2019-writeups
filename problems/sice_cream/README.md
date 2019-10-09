@@ -140,11 +140,12 @@ Obviously, this is a heap exploitation problem. We also note a few things:
 - Eating a sice cream `free`s the respective pointer, but does not `NULL` it out in `creams`. This allows us to potentially abuse a double free.
 - `name` is directly above `creams` in memory.
 - If we `reintroduce` with a name of the full length `256`, we can leak the first pointer in `creams`.
+
 Since most heap problems require a libc leak at some point, we think of ways to do this. Unfortunately, we can only allocate fastbin size chunks, which will not produce libc pointers. If only we could make a smallbin chunk...
 
-The key observation to make from here is that `rename` lets us have total control of `256` bytes (actually `255` because of the forced `\n`) in memory. We actually _can_ make a smallbin chunk: a fake one in `name`. Of course, we wouldn't be able to free that chunk to actually get the libc pointers written in unless we controlled `creams`.
+The key observation to make from here is that `rename` lets us have total control of `256` bytes (actually `255` because of the forced `\n`) in memory. We actually _can_ make a smallbin chunk: a forged one in `name`. Of course, we wouldn't be able to free that smallbin chunk to actually get the libc pointers written in unless we controlled `creams`.
 
-But we can in fact control `creams`! Remembering that `name` is right above `creams` in memory, we realize that we can use a  double free into fastbin forward pointer poisoning to get `malloc` to return a fake chunk in `names`, right above `creams`! Thus, we write into `names` the following data:
+But we can in fact control `creams`! Remembering that `name` is right above `creams` in memory, we realize that we can use a  double free into fastbin forward pointer poisoning to get `malloc` to return a fake chunk in `name`, right above `creams`! Thus, we will write into `name` the following data:
 ```
 [name]
 0x602040:    0x0000000000000000    0x00000000000000c1
@@ -169,13 +170,13 @@ But we can in fact control `creams`! Remembering that `name` is right above `cre
 By abusing double free, we can coerce malloc into returning the chunk at `0x602130`, which in turn means we can write `0x602040` into `creams[0]`, and thus free our fake fastbin chunk by `eat`ing `0`. (The chunk in between is to pass corruption checks.) If we do this, `name` will begin like so:
 ```
 0x602040:    0x0000000000000000    0x00000000000000c1
-0x602040:    <  libc pointer  >    <  libc pointer  >
+0x602050:    <  libc pointer  >    <  libc pointer  >
 ```
 ... and reintroducing ourselves with the name `AAAAAAAABBBBBBBB` will allow us to leak libc.
 
 From here, we might get stuck. Ideally, we would finish by using the same exploit and tricking `malloc` into returning a fake (misaligned) chunk of size `7f` right above `__malloc_hook`, then writing what we want into `__malloc_hook`. But such a chunk would be of fastbin size, and we can only allocate chunks of size up to `0x60`, so that wouldn't work.
 
-Eventually, we remember than we are in libc 2.23, which is coincidentally the version right before an exploit called House of Orange was patched. This exploit allows us to call an arbitrary function with a string argument. We might consider the standard `system("/bin/sh")`; however, when this is manually tested, we notice that `system` will silently crash and do nothing. This is a limitation due to the fact that we are using `LD_PRELOAD`: `/bin/sh` will crash when executed with this wrong version of libc. But we recall the secret `print_file` function: we can simply call `print_file(cat.txt)`. Now that we know what to do, we give our exploit script (with useful comments):
+Eventually, we remember than we are in libc 2.23, which is coincidentally the version right before an exploit called House of Orange was patched. This exploit (in a _very_ brief nutshell; see [here](https://github.com/shellphish/how2heap/blob/master/glibc_2.25/house_of_orange.c) for more details, referring to "phase two" of the attack) allows us to call an arbitrary function with a string by `malloc`ing after `free`ing a smallbin chunk for which we can write to after being freed. We might consider the standard `system("/bin/sh")`; however, when this is manually tested, we notice that `system` will silently crash and do nothing. This limitation is because we are using `LD_PRELOAD`: `/bin/sh` will crash when executed with this wrong version of libc. (This issue means that any normal finish involving getting a shell probably won't work). But we recall the secret `print_file` function: we can simply call `print_file("cat.txt")`. Now that we know what to do, we give our exploit script (with useful comments):
 ```python
 from pwn import *
 import time
