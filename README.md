@@ -123,5 +123,5 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | droids4 | 500 | Reverse Engineering |
 | investigation_encoded_2 | 500 | Forensics |
 | john_pollard | 500 | Cryptography |
-| sice_cream | 500 | Binary Exploitation |
+| [sice_cream](problems/sice_cream/README.md) | 500 | Binary Exploitation |
 | zero_to_hero | 500 | Binary Exploitation |
