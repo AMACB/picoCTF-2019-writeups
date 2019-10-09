@@ -55,7 +55,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | WhitePages | 250 | Forensics |
 | asm2 | 250 | Reverse Engineering |
 | c0rrupt | 250 | Forensics |
-| [like1000](problems/like1000/README.md) | 250 | Forensics |
+| [like1000](problems/like1000/) | 250 | Forensics |
 | m00nwalk | 250 | Forensics |
 | vault-door-4 | 250 | Reverse Engineering |
 | CanaRy | 300 | Binary Exploitation |
@@ -81,11 +81,11 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Irish-Name-Repo 2 | 350 | Web Exploitation |
 | WebNet0 | 350 | Forensics |
 | droids1 | 350 | Reverse Engineering |
-| [pastaAAA](problems/pastaAAA/README.md) | 350 | Forensics |
+| [pastaAAA](problems/pastaAAA/) | 350 | Forensics |
 | pointy | 350 | Binary Exploitation |
 | seed-sPRiNG | 350 | Binary Exploitation |
 | vault-door-6 | 350 | Reverse Engineering |
-| [AES-ABC](problems/aes-abc/README.md) | 400 | Cryptography |
+| [AES-ABC](problems/aes-abc/) | 400 | Cryptography |
 | AfterLife | 400 | Binary Exploitation |
 | B1ll_Gat35 | 400 | Reverse Engineering |
 | Empire1 | 400 | Web Exploitation |
@@ -123,5 +123,5 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | droids4 | 500 | Reverse Engineering |
 | investigation_encoded_2 | 500 | Forensics |
 | john_pollard | 500 | Cryptography |
-| [sice_cream](problems/sice_cream/README.md) | 500 | Binary Exploitation |
+| [sice_cream](problems/sice_cream/) | 500 | Binary Exploitation |
 | zero_to_hero | 500 | Binary Exploitation |
