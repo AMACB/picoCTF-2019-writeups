@@ -66,7 +66,7 @@ We do this now. The script will output in ECB.
 
 This will, theoretically, turn our ciphertext into the simpler ECB mode, so now we must exploit the ECB. The issue with ECB is that the same plaintext becomes the same ciphertext every time, so in cases where many plaintexts will inevitably repeated, we could guess what the plaintext corresponds to brcause it appears so frequently. Or, because it is an image being encrypted (it is ``.ppm``), we could hope that each block corresponds to one red-green-blue triple so that the same pixel will get encrypted to the same block in ciphertext, every single time.
 
-And this wishful thinking pays off. Indeed, if one runs ``set(ecb_blocks)``, there are surprisingly few total values (in comparison to the modulus ``UMAX``), so it is likey that these rgb values correspond. Skimming through ``ecb_blocks``, it is easily noticed that the value ``170711812579352817628051274266082219019`` appears far more than any other value, so we guess that this corresponds to a background color of some kind. Because of how little the other values seem to appear, we can will just pretend that this value is white and all other values are black. (This simply makes the image crisper and makes image-creation easier.)
+And this wishful thinking pays off. Indeed, if one runs ``set(ecb_blocks)``, there are surprisingly few total values (in comparison to the modulus ``UMAX``), so it is likey that these do in fact correspond to individual rgb values. Skimming through ``ecb_blocks``, it is easily noticed that the value ``170711812579352817628051274266082219019`` appears far more than any other value, so we guess that this corresponds to a background color of some kind. Because of how little the other values seem to appear, we can will just pretend that this value is black, and all other values are white. (This simply makes the image crisper and makes image-creation easier.)
 
 So we create the following image-creation function.
 ```python3
@@ -75,7 +75,7 @@ So we create the following image-creation function.
 >>> def create(w, h):
 ...     im = Image.new('RGB', (w,h))
 ...     im.putdata([(0,0,0) if b==bkgd else (255,255,255) for b in ecb_blocks])
-...     im.save('flags/flag' + str(w) + str('.png'))
+...     im.save('flags/flag' + str(w) + '.png')
 ```
 I couldn't get the image dimensions given in the header of the ``.ppm`` to work for me, but some for loop magic does the trick. After some guessing and checking (``for i in range(1,1000):create(i,len(ecb_blocks)//i+i)``), we see the flag is especially visible for widths of length ``355`` and multiples. 
 > ``picoCTF{d0Nt_r0ll_yoUr_0wN_aES}``
