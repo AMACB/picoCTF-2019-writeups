@@ -85,7 +85,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | pointy | 350 | Binary Exploitation |
 | seed-sPRiNG | 350 | Binary Exploitation |
 | vault-door-6 | 350 | Reverse Engineering |
-| AES-ABC | 400 | Cryptography |
+| [AES-ABC](problems/aes-abc/write-up.md) | 400 | Cryptography |
 | AfterLife | 400 | Binary Exploitation |
 | B1ll_Gat35 | 400 | Reverse Engineering |
 | Empire1 | 400 | Web Exploitation |
