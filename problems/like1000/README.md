@@ -12,4 +12,4 @@ for i in range(1000,0,-1):
     tarfile.open(str(i) + '.tar').extractall()
 ```
 After waiting for python to extract all the files, we are left with a ``flag.png``, which upon opening contains the flag.
-> picoCTF{l0t5_0f_TAR5}
+> ``picoCTF{l0t5_0f_TAR5}``
