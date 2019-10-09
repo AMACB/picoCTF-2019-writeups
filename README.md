@@ -55,7 +55,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | WhitePages | 250 | Forensics |
 | asm2 | 250 | Reverse Engineering |
 | c0rrupt | 250 | Forensics |
-| like1000 | 250 | Forensics |
+| [like1000](problems/like1000/write-up.md) | 250 | Forensics |
 | m00nwalk | 250 | Forensics |
 | vault-door-4 | 250 | Reverse Engineering |
 | CanaRy | 300 | Binary Exploitation |
