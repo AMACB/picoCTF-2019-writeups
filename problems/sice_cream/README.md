@@ -354,3 +354,5 @@ p.interactive()
 # Note: due to alignment issues we will not always get a flag from this.
 # If it fails, just run again
 ```
+After running a few times, we get our flag, a quite fitting comment:
+> `flag{th3_r3al_questi0n_is_why_1s_libc_2.23_still_4_th1ng_19e46be4}`
