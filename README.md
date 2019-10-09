@@ -81,7 +81,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Irish-Name-Repo 2 | 350 | Web Exploitation |
 | WebNet0 | 350 | Forensics |
 | droids1 | 350 | Reverse Engineering |
-| pastaAAA | 350 | Forensics |
+| [pastaAAA](problems/pastaAAA/write-up.md) | 350 | Forensics |
 | pointy | 350 | Binary Exploitation |
 | seed-sPRiNG | 350 | Binary Exploitation |
 | vault-door-6 | 350 | Reverse Engineering |
