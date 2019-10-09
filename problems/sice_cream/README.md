@@ -1,5 +1,9 @@
 # sice_cream
 
+> Just pwn this [program](sice_cream) and get a flag. Connect with `nc 2019shell1.picoctf.com 5033`. [libc.so.6](libc.so.6) [ld-2.23.so](ld-2.23.so).
+
+> Hints: Make sure to both files are in the same directory as the executable, and set `LD_PRELOAD` to the path of `libc.so.6`
+
 We are given a stripped binary called `sice_cream` as well as two libc files: `libc.so.6` and `ld-2.23.so`. Therefore, we know we are working in GLIBC version 2.23. When running (with `LD_PRELOAD=./libc.so.6`; also make sure all three files are marked as executable), we are prompted for a name, then greeted with a four option menu: `Buy sice cream`, `Eat sice cream`, `Reintroduce yourself`, and `Exit`. Before we move on, let's also take a look at the checksec for this problem:
 ```
 [*] '/.../sice_cream'
