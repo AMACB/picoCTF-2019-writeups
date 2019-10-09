@@ -64,10 +64,10 @@ void do_remove() {
 }
 
 int main() {
-	/* Flush buffer on newline or when buffer is full */
-	setvbuf(stdin,NULL,_IOLBF,0);
-	setvbuf(stdout,NULL,_IOLBF,0);
-	setvbuf(stderr,NULL,_IOLBF,0);
+	/* No buffering */
+	setvbuf(stdin,NULL,_IONBF,0);
+	setvbuf(stdout,NULL,_IONBF,0);
+	setvbuf(stderr,NULL,_IONBF,0);
 
 	puts("From Zero to Hero");
 	puts("So, you want to be a hero?");
