@@ -11,19 +11,18 @@ char _folderName [8];
 int _main() {
 	char buf [50];
 	FILE* flagfile;
-	
 	_isOver = 0;
 	_pLevel = 0;
 	flagfile = fopen("flag.txt","r");
 	if (flagfile == NULL) {
 		puts("No flag found, please make sure this is run on the server");
 	}
-	if (fread(buf,1,0x12,flagfile) < 1) {
+	if (fread(buf,1,18,flagfile) < 1) {
 		exit(0);
 	}
 	_folderName = "./test"
 	_flag = buf;
-	_flag_size = 0x12;
+	_flag_size = 18;
 	int i = 0;
 	_flag_index = &i;
 	puts("Work is done!");
@@ -45,7 +44,7 @@ void _listdir(int mode, char* folderName) {
 		printf("Path not found: [%s]\n", folderName);
 	} else {
 		do {
-			if (strcmp(file_data.cFileName, ".") != 0 && strcmp(file_data.cFileName, "..") != 0) {
+			if (strcmp(file_data.cFileName,".") != 0 && strcmp(file_data.cFileName,"..") != 0) {
 				sprintf(buf,"%s\\%s",folderName,file_data.cFileName);
 				if ((file_data.dwFileAttributes & 0x10) == 0) {
 					if (shouldAct) {
@@ -73,7 +72,7 @@ void _hideInFile(char* filename) {
 	char tmp1, tmp2;
 	HANDLE file_handle;
 	
-	file_handle = CreateFileA(filename,0x100,0,(LPSECURITY_ATTRIBUTES)0x0,3,0,(HANDLE)0x0);
+	file_handle = CreateFileA(filename,0x100,0,NULL,3,0,NULL);
 	changeFileTime(file_handle);
 	if (file_handle == -1) {
 		printf("Error:INVALID_HANDLED_VALUE");
@@ -121,14 +120,14 @@ void changeFileTime(HANDLE file) {
 }
 
 void _decodeBytes(char* filename) {
-	// we don't actually need this function
+	// we don't actually need to reverse this function because it isn't used
 }
 ```
-There are several Windows API functions that we might not be familiar with: [`FindFirstFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-findfirstfilea), [`FindNextFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-findnextfilea), [`CreateFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea), [`CloseHandle`](https://docs.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-closehandle), [`GetFileTime`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfiletime), and [`SetFileTime`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-setfiletime). The first two allow one to iterate through files in a directory. The third and fourth are essentially eqiuvalent to `fopen` and `fclose`, but return a type `HANDLE`, which allows for other I/O operations to be performed. In particular, `GetFileTime` and `SetFileTime` allow (via a `HANDLE` type) the reading and writing of a file's creation time, last access time, and last write time. We suspect that the data is encoded into these file times.
+There are several Windows API functions that we might not be familiar with: [`FindFirstFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-findfirstfilea), [`FindNextFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-findnextfilea), [`CreateFileA`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea), [`CloseHandle`](https://docs.microsoft.com/en-us/windows/win32/api/handleapi/nf-handleapi-closehandle), [`GetFileTime`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfiletime), and [`SetFileTime`](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-setfiletime). The first two allow iteration through files in a directory. The third and fourth are essentially eqiuvalent to `fopen` and `fclose`, but return a type `HANDLE`, which allows for other I/O operations to be performed. In particular, `GetFileTime` and `SetFileTime` allow (via a `HANDLE` type) the reading and writing of a file's creation time, last access time, and last write time. We suspect that the data is encoded into these file times.
 
-Reading the code confirms our suspicion. For each file in the directory `./test` (actually, every other file; thus, only the `'Copy'` files are modified), two bytes of ASCII are written into the least significant two bytes of the last write time. We also should note the datatype being used, [`FILETIME`](https://docs.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime). This datatype represents the number of `100` nanosecond intervals since January 1, 1601 UTC, also known as the [LDAP format](https://www.epochconverter.com/ldap).
+Reading the code confirms our suspicion. For each file in the directory `./test` (actually, every other file, and thus only the `'Copy'` files), two bytes of ASCII are written into the least significant two bytes of the last write time. We also should note the datatype being used, [`FILETIME`](https://docs.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime). This datatype represents the number of `100` nanosecond intervals since January 1, 1601 UTC, also known as the [LDAP format](https://www.epochconverter.com/ldap).
 
-To actually extract this data, we have to be careful not to inadvertantly change this. On Windows, we can use `7-zip` to open and extract these files without modifying their file times. Actually viewing the times to the precision we need is quite an annoyance, however. The Windows `Properties` dialogue rounds to the nearest minute. `7-zip` rounds to the nearest second. But we need to see microsecond-level precision. To solve this, we can use the `stat` command in the [Cygwin](https://cygwin.com/) shell. (There are certainly [other ways](https://superuser.com/a/937401/) to get this information, but this one worked simply and quickly). For instance:
+To actually extract this data, we have to be careful not to inadvertantly change the file times in the zip. On Windows, we can use `7-zip` to open and extract these files without modifying their file times. Actually viewing the times to the precision we need is quite an annoyance, however. The Windows `Properties` dialogue rounds to the nearest minute; `7-zip` rounds to the nearest second.  We need to see microsecond-level precision. To solve this, we can use the `stat` command in the [Cygwin](https://cygwin.com/) shell. (There are certainly [other ways](https://superuser.com/a/937401/) to get the file time resolution we need, but this one worked simply and quickly). For instance:
 
 ```
 $ stat 'Item 01 - Copy.bmp'
@@ -136,6 +135,6 @@ $ stat 'Item 01 - Copy.bmp'
 Modify: 2019-03-25 18:20:08.002775300 -0500
 ...
 ```
-If we convert this into an integer in the LDAP format, we get `131980296080027753`, or `0x1d4e36149337069`. Aha! Those last two bytes are `pi` in ASCII. We continue this process on all of the `'Copy'` files in order to get our flag:
+If we convert this into an integer in the LDAP format, we get `131980296080027753`, or `0x1d4e36149337069`. Aha! Those last two bytes are `pi` in ASCII. We continue this process on all of the `'Copy'` files and concatenate them to get our flag:
 
 > `picoCTF{M4cTim35!}`
