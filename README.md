@@ -48,7 +48,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | rsa-pop-quiz | 200 | Cryptography |
 | slippery-shellcode | 200 | Binary Exploitation |
 | vault-door-3 | 200 | Reverse Engineering |
-| whats-the-difference | 200 | General Skills |
+| [whats-the-difference](problems/whats-the-difference) | 200 | General Skills |
 | where-is-the-file | 200 | General Skills |
 | NewOverFlow-2 | 250 | Binary Exploitation |
 | OverFlow 2 | 250 | Binary Exploitation |
