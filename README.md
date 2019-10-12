@@ -112,7 +112,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | b00tl3gRSA3 | 450 | Cryptography |
 | cereal hacker 1 | 450 | Web Exploitation |
 | droids3 | 450 | Reverse Engineering |
-| investigation_encoded_1 | 450 | Forensics |
+| [investigation_encoded_1](problems/investigation_encoded_1) | 450 | Forensics |
 | vault-door-8 | 450 | Reverse Engineering |
 | [B1g_Mac](problems/B1g_Mac) | 500 | Forensics |
 | Empire3 | 500 | Web Exploitation |
