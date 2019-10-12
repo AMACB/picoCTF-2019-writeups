@@ -93,7 +93,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Investigative Reversing 4 | 400 | Forensics |
 | Irish-Name-Repo 3 | 400 | Web Exploitation |
 | JaWT Scratchpad | 400 | Web Exploitation |
-| Java Script Kiddie | 400 | Web Exploitation |
+| [Java Script Kiddie](problems/Java-Script-Kiddie) | 400 | Web Exploitation |
 | L1im1tL355 | 400 | Binary Exploitation |
 | Need For Speed | 400 | Reverse Engineering |
 | SecondLife | 400 | Binary Exploitation |
