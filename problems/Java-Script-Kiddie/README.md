@@ -124,7 +124,9 @@ Let's see what the three `?`s must be:
 - The third `?` must make the `compression method` valid (0 is the only one allowed); we must have the third `? = 2,3,4`.
 
 With only nine possibilites left, we can simply brute force the possible keys: `4995203057275112`, `4995203057375112`, `4995203057475112`, `4995203058275112`, `4995203058375112`, `4995203058475112`, `4995203059275112`, `4995203059375112`, `4995203059475112`. The last one gives us a QR code:
+
 ![QR Code](qr.png "QR Code")
+
 The QR [decodes](https://zxing.org/w/decode.jspx) to the flag:
 
 > `picoCTF{b7794daf95ade3c353aa8618c3a7e2c6}`
