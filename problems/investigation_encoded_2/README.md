@@ -2,7 +2,7 @@
 
 > We have recovered a [binary](mystery) and 1 file: [image01](output). See what you can make of it. Its also found in `/problems/investigation-encoded-2_1_a4cbd68ce835252282cea861a81110f8` on the shell server. NOTE: The flag is not in the normal picoCTF{XXX} format.
 
-This problem is remarkably similar to [investigation_encoded_1](../problems/investigation_encoded_1), and we recommend reading that writeup first. Here's the translated python code:
+This problem is remarkably similar to [investigation_encoded_1](/problems/investigation_encoded_1), and we recommend reading that writeup first. Here's the translated python code:
 ```python
 isValid = lambda c: (c == ' ') or ('a' <= c and c <= 'z') or ('A' <= c and c <= 'Z') or ('0' <= c and c <= '9')
 def getValue(val):
