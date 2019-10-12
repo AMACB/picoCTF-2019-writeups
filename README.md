@@ -97,7 +97,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | L1im1tL355 | 400 | Binary Exploitation |
 | Need For Speed | 400 | Reverse Engineering |
 | SecondLife | 400 | Binary Exploitation |
-| Time's Up | 400 | Reverse Engineering |
+| [Time's Up](problems/times-up) | 400 | Reverse Engineering |
 | asm4 | 400 | Reverse Engineering |
 | b00tl3gRSA2 | 400 | Cryptography |
 | droids2 | 400 | Reverse Engineering |
@@ -107,7 +107,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Empire2 | 450 | Web Exploitation |
 | Heap overflow | 450 | Binary Exploitation |
 | Java Script Kiddie 2 | 450 | Web Exploitation |
-| Time's Up, Again! | 450 | Reverse Engineering |
+| [Time's Up, Again!](problems/times-up-again) | 450 | Reverse Engineering |
 | WebNet1 | 450 | Forensics |
 | b00tl3gRSA3 | 450 | Cryptography |
 | cereal hacker 1 | 450 | Web Exploitation |
