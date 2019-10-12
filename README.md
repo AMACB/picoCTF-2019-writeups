@@ -48,7 +48,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | rsa-pop-quiz | 200 | Cryptography |
 | slippery-shellcode | 200 | Binary Exploitation |
 | vault-door-3 | 200 | Reverse Engineering |
-| whats-the-difference | 200 | General Skills |
+| [whats-the-difference](problems/whats-the-difference) | 200 | General Skills |
 | where-is-the-file | 200 | General Skills |
 | NewOverFlow-2 | 250 | Binary Exploitation |
 | OverFlow 2 | 250 | Binary Exploitation |
@@ -97,7 +97,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | L1im1tL355 | 400 | Binary Exploitation |
 | Need For Speed | 400 | Reverse Engineering |
 | SecondLife | 400 | Binary Exploitation |
-| Time's Up | 400 | Reverse Engineering |
+| [Time's Up](problems/times-up) | 400 | Reverse Engineering |
 | asm4 | 400 | Reverse Engineering |
 | b00tl3gRSA2 | 400 | Cryptography |
 | droids2 | 400 | Reverse Engineering |
@@ -107,7 +107,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Empire2 | 450 | Web Exploitation |
 | Heap overflow | 450 | Binary Exploitation |
 | Java Script Kiddie 2 | 450 | Web Exploitation |
-| Time's Up, Again! | 450 | Reverse Engineering |
+| [Time's Up, Again!](problems/times-up-again) | 450 | Reverse Engineering |
 | WebNet1 | 450 | Forensics |
 | b00tl3gRSA3 | 450 | Cryptography |
 | cereal hacker 1 | 450 | Web Exploitation |
@@ -117,11 +117,11 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | [B1g_Mac](problems/B1g_Mac) | 500 | Forensics |
 | Empire3 | 500 | Web Exploitation |
 | Forky | 500 | Reverse Engineering |
-| Ghost_Diary | 500 | Binary Exploitation |
+| [Ghost_Diary](problems/Ghost_Diary) | 500 | Binary Exploitation |
 | Time's Up, For the Last Time! | 500 | Reverse Engineering |
 | cereal hacker 2 | 500 | Web Exploitation |
 | droids4 | 500 | Reverse Engineering |
 | investigation_encoded_2 | 500 | Forensics |
-| john_pollard | 500 | Cryptography |
+| [john_pollard](problems/john_pollard) | 500 | Cryptography |
 | [sice_cream](problems/sice_cream/) | 500 | Binary Exploitation |
 | [zero_to_hero](problems/zero_to_hero/) | 500 | Binary Exploitation |
