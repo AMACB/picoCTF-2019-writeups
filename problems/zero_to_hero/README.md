@@ -6,7 +6,7 @@
 
 In one sentence, this exploit is tcache poison triggered by a poison null byte to gain arbitrary write.
 
-As the first step always is, we begin by reversing the binary with ghidra. The reversed code can be found in [zero_to_hero.cc](zero_to_hero.cc).
+As the first step always is, we begin by reversing the binary with ghidra. The reversed code can be found in [zero_to_hero.c](zero_to_hero.c).
 
 Before continuing, we note that there is a hidden ``win()`` function that is referenced nowhere else in the program. It simply prints out the flag from the file ``flag.txt``.
 
