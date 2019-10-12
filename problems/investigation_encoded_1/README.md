@@ -95,3 +95,5 @@ z : 11101110101000
 Now, we simply write a [script](solve.py) to decode and get the flag:
 
 > `encodeddbqkjjnbfz`
+
+Note that this problem is very similar to [investigation_encoded_2](/problems/investigation_encoded_2).
