@@ -60,7 +60,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | vault-door-4 | 250 | Reverse Engineering |
 | CanaRy | 300 | Binary Exploitation |
 | Investigative Reversing 0 | 300 | Forensics |
-| Irish-Name-Repo 1 | 300 | Web Exploitation |
+| [Irish-Name-Repo 1](problems/Irish-Name-Repo_1) | 300 | Web Exploitation |
 | asm3 | 300 | Reverse Engineering |
 | droids0 | 300 | Reverse Engineering |
 | flag_shop | 300 | General Skills |
@@ -78,7 +78,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | GoT | 350 | Binary Exploitation |
 | Investigative Reversing 1 | 350 | Forensics |
 | Investigative Reversing 2 | 350 | Forensics |
-| Irish-Name-Repo 2 | 350 | Web Exploitation |
+| [Irish-Name-Repo 2](problems/Irish-Name-Repo_2) | 350 | Web Exploitation |
 | WebNet0 | 350 | Forensics |
 | droids1 | 350 | Reverse Engineering |
 | [pastaAAA](problems/pastaAAA/) | 350 | Forensics |
@@ -91,7 +91,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Empire1 | 400 | Web Exploitation |
 | Investigative Reversing 3 | 400 | Forensics |
 | Investigative Reversing 4 | 400 | Forensics |
-| Irish-Name-Repo 3 | 400 | Web Exploitation |
+| [Irish-Name-Repo 3](problems/Irish-Name-Repo_3) | 400 | Web Exploitation |
 | JaWT Scratchpad | 400 | Web Exploitation |
 | [Java Script Kiddie](problems/Java-Script-Kiddie) | 400 | Web Exploitation |
 | L1im1tL355 | 400 | Binary Exploitation |
