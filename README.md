@@ -106,7 +106,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | vault-door-7 | 400 | Reverse Engineering |
 | Empire2 | 450 | Web Exploitation |
 | Heap overflow | 450 | Binary Exploitation |
-| Java Script Kiddie 2 | 450 | Web Exploitation |
+| [Java Script Kiddie 2](problems/Java-Script-Kiddie-2) | 450 | Web Exploitation |
 | [Time's Up, Again!](problems/times-up-again) | 450 | Reverse Engineering |
 | WebNet1 | 450 | Forensics |
 | b00tl3gRSA3 | 450 | Cryptography |
