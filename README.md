@@ -70,7 +70,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | miniRSA | 300 | Cryptography |
 | mus1c | 300 | General Skills |
 | reverse_cipher | 300 | Reverse Engineering |
-| shark on wire 2 | 300 | Forensics |
+| [shark on wire 2](problems/shark-on-wire-2) | 300 | Forensics |
 | stringzz | 300 | Binary Exploitation |
 | vault-door-5 | 300 | Reverse Engineering |
 | waves over lambda | 300 | Cryptography |
