@@ -16,7 +16,7 @@ We are given a stripped 64-bit binary called `ghostdiary` as well as a directory
     PIE:      PIE enabled
 
 ```
-It looks like everything is enabled, so we have quite the task ahead of us. After running, we are given a menu with the following options: `New page`, `Talk with ghost`, `Listen to ghost`, `Burn the page`, and `Go to sleep`. We suspect that these operations correspond to a fairly standard heap problem with `create`, `edit`, `read`, `delete`, and `exit`. We, as always, then begin attacking the problem by reversing the binary. The full pseudocode can be found [here](ghost_diary.cc).
+It looks like everything is enabled, so we have quite the task ahead of us. After running, we are given a menu with the following options: `New page`, `Talk with ghost`, `Listen to ghost`, `Burn the page`, and `Go to sleep`. We suspect that these operations correspond to a fairly standard heap problem with `create`, `edit`, `read`, `delete`, and `exit`. We, as always, then begin attacking the problem by reversing the binary. The full pseudocode can be found [here](ghost_diary.c).
 
 Running the standard checks on stupid exploits is rather unfruitful. The ``delete_page`` method correctly sets the pointer to ``NULL`` after freeing, so any use-after-free exploit will have to work nontrivially.
 
