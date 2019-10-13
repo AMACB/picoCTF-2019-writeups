@@ -43,7 +43,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Tapping | 200 | Cryptography |
 | asm1 | 200 | Reverse Engineering |
 | la cifra de | 200 | Cryptography |
-| picobrowser | 200 | Web Exploitation |
+| [picobrowser](problems/picobrowser) | 200 | Web Exploitation |
 | plumbing | 200 | General Skills |
 | rsa-pop-quiz | 200 | Cryptography |
 | slippery-shellcode | 200 | Binary Exploitation |
