@@ -65,9 +65,15 @@ int main() {
 	system("./times-up-one-last-time");
 }
 ```
-Now that we're able to get input into the program, we can return to the idea of literally only inserting a new line and sometimes retrieving the flag. (There are interesting reasons this occurs, but they largely don't matter. In short, the answer is frequently 0 depending on the structure of the challenge, and no input as in ``\n`` is read in as 0.) Running the above C program enough times with just spamming an input of ``0`` will eventually retrieve the flag. Here's a bash for loop that will do the job.
+Now that we're able to get input into the program, we can return to the idea of literally only inserting a new line and sometimes retrieving the flag. (There are interesting reasons this occurs, but they largely don't matter. In short, the answer is frequently 0 depending on the structure of the challenge, and no input as in ``\n`` is read in as 0.) Running the above C program enough times with just spamming an input of ``0`` will eventually retrieve the flag. Here's a quick bash script that will do the job.
 ```bash
-/problems/time-s-up--for-the-last-time-[...]$ for i in {0..1000..1}; do (exploit <<< '\n') | grep "picoCTF"; done
+#!/bin/bash
+
+# To be run in /problems/time-s-up--for-the-last-time-_1_a7830af9d51a361ee5d3b9eece69c22f
+for i in {1..1000..1};
+do
+	(exploit <<< '\n') | grep "picoCTF{.*}";
+done
 ```
 And so we have our flag.
 > ``picoCTF{And now you can hack time! #2e0a37d1}``
