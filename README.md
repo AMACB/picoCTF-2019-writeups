@@ -118,7 +118,7 @@ Hello from team dry roasted peanuts! These are our writeups for picoCTF 2019.
 | Empire3 | 500 | Web Exploitation |
 | Forky | 500 | Reverse Engineering |
 | [Ghost_Diary](problems/Ghost_Diary) | 500 | Binary Exploitation |
-| Time's Up, For the Last Time! | 500 | Reverse Engineering |
+| [Time's Up, For the Last Time!](problems/times-up-for-the-last-time) | 500 | Reverse Engineering |
 | cereal hacker 2 | 500 | Web Exploitation |
 | droids4 | 500 | Reverse Engineering |
 | [investigation_encoded_2](problems/investigation_encoded_2) | 500 | Forensics |
