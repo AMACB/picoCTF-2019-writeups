@@ -4,7 +4,7 @@
 
 > Hints: You dont need to download a new web browser
 
-Recalling [Secure Logon](https://github.com/shiltemann/CTF-writeups-public/blob/master/PicoCTF_2018/writeup.md#web-exploitation-500-secure-logon) from last year's competition, we feel like we can attempt a similar attack. While last time we were supposed to disguise ourselves as a Google use, this time we want to change the browser we are using. Connecting once with the website to ``/flag`` greets us with the following text.
+Recalling [Secret Agent](https://github.com/shiltemann/CTF-writeups-public/blob/master/PicoCTF_2018/writeup.md#web-exploitation-200-secret-agent) from last year's competition, we feel like we can attempt a similar attack. While last time we were supposed to disguise ourselves as a Google use, this time we want to change the browser we are using. Connecting once with the website to ``/flag`` greets us with the following text.
 > You're not picobrowser! Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
 
 Trying this on another browser (my Windows machine comes with Edge installed) yeilds the following.
