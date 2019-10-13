@@ -61,8 +61,8 @@ The following C program opens a session with the file in which the alarm is igno
 #include <signal.h>
 
 int main() {
-  signal(SIGALRM, SIG_IGN);
-  system("./times-up-one-last-time");
+	signal(SIGALRM, SIG_IGN);
+	system("./times-up-one-last-time");
 }
 ```
 Now that we're able to get input into the program, we can return to the idea of literally only inserting a new line and sometimes retrieving the flag. (There are interesting reasons this occurs, but they largely don't matter. In short, the answer is frequently 0 depending on the structure of the challenge, and no input as in ``\n`` is read in as 0.) Running the above C program enough times with just spamming an input of ``0`` will eventually retrieve the flag. Here's a bash for loop that will do the job.
